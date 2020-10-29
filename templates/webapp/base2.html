@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   {% load static %}
+  </head>
+  <body>
+
+    
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+   		 <div class="container-fluid">
+   		 	 <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav ml-auto text-center">
+
+            <li class="nav-item active">
+                <a class="nav-link text-light" href="{% url 'home' %}"><font size="3">&nbsp; <strong>Home</strong> </font></a>
+            </li>
+              {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url  'restuarant:mmenu' %}"><font size="3">&nbsp;<strong>Menu </strong></font></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-light" href="{% url  'restuarant:orderlist' %}"><font size="3">&nbsp;<strong>Orders</strong></font></a>
+            </li>
+{% endif %}
+        </ul>
+    </div>
+    <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+        <ul class="navbar-nav mr-auto text-center">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link text-light " href="{% url 'restuarant:logout' %}"><font size="3"> &nbsp;<span aria-hidden="true"></span><strong>LogOut </strong> </font></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light " href="{%url 'restuarant:rprofile' %}"><font size="3"> &nbsp;<span aria-hidden="true"></span><strong>Profile</strong></font></a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+                <a class="nav-link text-light " href="{% url 'restuarant:rlogin' %}"><font size="3">&nbsp;<span aria-hidden="true"></span> <strong>LogIn</strong></font></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light " href="{% url 'restuarant:rregister' %}"><font size="3">&nbsp;<span aria-hidden="true"></span> <strong>Join Us</strong></font></a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+</nav>
+
+{% block body %}
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+
+
+
+<script type="text/javascript" src="{%static 'webapp/js/jquery.min.js'%}">
+	</script>
+	<script type="text/javascript" src="{%static 'webapp/js/bootstrap.min.js'%}"></script>
+<script>
+	new WOW().init();
+</script>
+<script src="/static/webapp/js/simpleCart.min.js"> </script>
+<script type="text/javascript" src="/static/webapp/js/move-top.js"></script>
+<script type="text/javascript" src="/static/webapp/js/easing.js"></script>
+</body>
+</html>
